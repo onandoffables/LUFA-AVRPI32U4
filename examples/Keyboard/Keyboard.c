@@ -160,29 +160,35 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
 {
 	USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
 
-	uint8_t JoyStatus_LCL    = Joystick_GetStatus();
+	uint8_t JoyStatus_LCL    = Joystick_GetStatus(); // up down left right
+	uint8_t JoyStatusB_LCL    = JoystickB_GetStatus(); // press
 	uint8_t ButtonStatus_LCL = Buttons_GetStatus();
 
 	uint8_t UsedKeyCodes = 0;
 
+	// joy - up down
 	if (JoyStatus_LCL & JOY_UP)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_A;
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_A;
 	else if (JoyStatus_LCL & JOY_DOWN)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_B;
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_B;
 
+	// joy - left right
 	if (JoyStatus_LCL & JOY_LEFT)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_C;
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_C;
 	else if (JoyStatus_LCL & JOY_RIGHT)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_D;
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_D;
 
-	//if (JoyStatus_LCL & JOY_PRESS)
-	//  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_E;
+	// joy - press
+	if (JoyStatusB_LCL & JOY_PRESS)
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_E;
 
+	// button - button1
 	if (ButtonStatus_LCL & BUTTONS_BUTTON1)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_F;
+		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_F;
 
+	// modifiers
 	if (UsedKeyCodes)
-	  KeyboardReport->Modifier = HID_KEYBOARD_MODIFIER_LEFTSHIFT;
+		KeyboardReport->Modifier = HID_KEYBOARD_MODIFIER_LEFTSHIFT;
 
 	*ReportSize = sizeof(USB_KeyboardReport_Data_t);
 	return false;
@@ -202,6 +208,7 @@ void CALLBACK_HID_Device_ProcessHIDReport(USB_ClassInfo_HID_Device_t* const HIDI
                                           const void* ReportData,
                                           const uint16_t ReportSize)
 {
+	/*
 	uint8_t  LEDMask   = LEDS_NO_LEDS;
 	uint8_t* LEDReport = (uint8_t*)ReportData;
 
@@ -209,11 +216,12 @@ void CALLBACK_HID_Device_ProcessHIDReport(USB_ClassInfo_HID_Device_t* const HIDI
 	  LEDMask |= LEDS_LED1;
 
 	if (*LEDReport & HID_KEYBOARD_LED_CAPSLOCK)
-	  LEDMask |= LEDS_LED3;
+	  LEDMask |= LEDS_LED2;
 
 	if (*LEDReport & HID_KEYBOARD_LED_SCROLLLOCK)
-	  LEDMask |= LEDS_LED4;
+	  LEDMask |= LEDS_LED3;
 
 	LEDs_SetAllLEDs(LEDMask);
+	*/
 }
 

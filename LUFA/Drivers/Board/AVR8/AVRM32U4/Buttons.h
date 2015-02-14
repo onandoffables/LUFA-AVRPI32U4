@@ -63,59 +63,23 @@
 
 	/* Public Interface - May be used in end-application: */
 		/* Macros: */
-			#define BUTTON_MASK          ((1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7))
-			#define BUTTON2_MASK         ((1 << 6) | (1 << 7))
-			#define BUTTON3_MASK         ((1 << 6) | (1 << 7))
-			
+			/** Buttons on the board. */
+			#define BUTTONS_BUTTON1      (1 << 2)
 			/** Button mask for the buttons on the board. */
-			#define BUTTONS_BUTTON1      (1 << 0)
-			#define BUTTONS_BUTTON2      (1 << 1)
-			#define BUTTONS_BUTTON3      (1 << 2)
-			#define BUTTONS_BUTTON4      (1 << 3)
-			#define BUTTONS_BUTTON5      (1 << 4)
-			#define BUTTONS_BUTTON6      (1 << 5)
-			#define BUTTONS_BUTTON7      (1 << 6)
-			#define BUTTONS_BUTTON8      (1 << 7)
-			
-			// buttons2
-			#define BUTTONS_BUTTON9      (1 << 6)
-			#define BUTTONS_BUTTON10     (1 << 7)
-			
-			// buttons3
-			#define BUTTONS_BUTTON11     (1 << 6)
-			#define BUTTONS_BUTTON12     (1 << 7)
-			
+			#define BUTTON_MASK          (BUTTONS_BUTTON1)
 
 		/* Inline Functions: */
 		#if !defined(__DOXYGEN__)
 			static inline void Buttons_Init(void)
 			{
-				DDRB  &= ~BUTTON_MASK;
-				PORTB |=  BUTTON_MASK;
-				
-				DDRF  &= ~BUTTON2_MASK;
-				PORTF |=  BUTTON2_MASK;
-				
-				DDRC  &= ~BUTTON3_MASK;
-				PORTC |=  BUTTON3_MASK;
+				DDRE  &= ~BUTTON_MASK;
+				PORTE |=  BUTTON_MASK;
 			}
 
 			static inline uint8_t Buttons_GetStatus(void) ATTR_WARN_UNUSED_RESULT;
 			static inline uint8_t Buttons_GetStatus(void)
 			{
-				return (uint8_t)(~PINB & BUTTON_MASK);
-			}
-			
-			static inline uint8_t Buttons2_GetStatus(void) ATTR_WARN_UNUSED_RESULT;
-			static inline uint8_t Buttons2_GetStatus(void)
-			{
-				return (uint8_t)(~PINF & BUTTON2_MASK);
-			}
-			
-			static inline uint8_t Buttons3_GetStatus(void) ATTR_WARN_UNUSED_RESULT;
-			static inline uint8_t Buttons3_GetStatus(void)
-			{
-				return (uint8_t)(~PINC & BUTTON3_MASK);
+				return (uint8_t)(~PINE & BUTTON_MASK);
 			}
 		#endif
 
