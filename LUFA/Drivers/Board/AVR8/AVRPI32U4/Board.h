@@ -29,24 +29,24 @@
 */
 
 /** \file
- *  \brief Board specific information header for the AVRM32U4 Addon board.
- *  \copydetails Group_BoardInfo_AVRM32U4
+ *  \brief Board specific information header for the AVRPI32U4 Addon board.
+ *  \copydetails Group_BoardInfo_AVRPI32U4
  *
  *  \note This file should not be included directly. It is automatically included as needed by the Board driver
  *        dispatch header located in LUFA/Drivers/Board/Board.h.
  */
 
 /** \ingroup Group_BoardInfo
- *  \defgroup Group_BoardInfo_AVRM32U4 AVRM32U4
- *  \brief Board specific information header for the AVRM32U4 Addon board.
+ *  \defgroup Group_BoardInfo_AVRPI32U4 AVRPI32U4
+ *  \brief Board specific information header for the AVRPI32U4 Addon board.
  *
- *  Board specific information header for the AVRM32U4 Addon board (http://www.onandoffables.com).
+ *  Board specific information header for the AVRPI32U4 Addon board (http://www.onandoffables.com).
  *
  *  @{
  */
 
-#ifndef __BOARD_AVRM32U4_H__
-#define __BOARD_AVRM32U4_H__
+#ifndef __BOARD_AVRPI32U4_H__
+#define __BOARD_AVRPI32U4_H__
 
 	/* Includes: */
 		#include "../../../../Common/Common.h"

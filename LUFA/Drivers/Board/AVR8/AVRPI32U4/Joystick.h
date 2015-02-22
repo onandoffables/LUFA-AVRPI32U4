@@ -29,24 +29,24 @@
 */
 
 /** \file
- *  \brief Board specific joystick driver header for the AVRM32U4.
- *  \copydetails Group_Joystick_AVRM32U4
+ *  \brief Board specific joystick driver header for the AVRPI32U4.
+ *  \copydetails Group_Joystick_AVRPI32U4
  *
  *  \note This file should not be included directly. It is automatically included as needed by the joystick driver
  *        dispatch header located in LUFA/Drivers/Board/Joystick.h.
  */
 
 /** \ingroup Group_Joystick
- *  \defgroup Group_Joystick_AVRM32U4 AVRM32U4
- *  \brief Board specific joystick driver header for the AVRM32U4.
+ *  \defgroup Group_Joystick_AVRPI32U4 AVRPI32U4
+ *  \brief Board specific joystick driver header for the AVRPI32U4.
  *
- *  Board specific joystick driver header for the AVRM32U4.
+ *  Board specific joystick driver header for the AVRPI32U4.
  *
  *  @{
  */
 
-#ifndef __JOYSTICK_AVRM32U4_H__
-#define __JOYSTICK_AVRM32U4_H__
+#ifndef __JOYSTICK_AVRPI32U4_H__
+#define __JOYSTICK_AVRPI32U4_H__
 
 	/* Includes: */
 		#include "../../../LUFA/Common/Common.h"

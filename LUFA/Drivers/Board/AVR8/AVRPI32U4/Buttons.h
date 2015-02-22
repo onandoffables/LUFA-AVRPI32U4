@@ -29,24 +29,24 @@
 */
 
 /** \file
- *  \brief Board specific Buttons driver header for the AVRM32U4.
- *  \copydetails Group_Buttons_AVRM32U4
+ *  \brief Board specific Buttons driver header for the AVRPI32U4.
+ *  \copydetails Group_Buttons_AVRPI32U4
  *
  *  \note This file should not be included directly. It is automatically included as needed by the Buttons driver
  *        dispatch header located in LUFA/Drivers/Board/Buttons.h.
  */
 
 /** \ingroup Group_Buttons
- *  \defgroup Group_Buttons_AVRM32U4 AVRM32U4
- *  \brief Board specific Buttons driver header for the AVRM32U4.
+ *  \defgroup Group_Buttons_AVRPI32U4 AVRPI32U4
+ *  \brief Board specific Buttons driver header for the AVRPI32U4.
  *
- *  Board specific Buttons driver header for the AVRM32U4.
+ *  Board specific Buttons driver header for the AVRPI32U4.
  *
  *  @{
  */
 
-#ifndef __BUTTONS_AVRM32U4_H__
-#define __BUTTONS_AVRM32U4_H__
+#ifndef __BUTTONS_AVRPI32U4_H__
+#define __BUTTONS_AVRPI32U4_H__
 
 	/* Includes: */
 		#include "../../../LUFA/Common/Common.h"

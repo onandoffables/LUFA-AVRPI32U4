@@ -65,8 +65,8 @@
 
 		#if (BOARD == BOARD_USBKEY)
 			#include "AVR8/USBKEY/Board.h"
-		#elif (BOARD == AVRM32U4)
-			#include "AVR8/AVRM32U4/Board.h"
+		#elif (BOARD == AVRPI32U4)
+			#include "AVR8/AVRPI32U4/Board.h"
 		#elif (BOARD == BOARD_STK525)
 			#include "AVR8/STK525/Board.h"
 		#elif (BOARD == BOARD_STK526)

@@ -109,8 +109,8 @@
 			static inline uint_reg_t Joystick_GetStatus(void) { return 0; };
 		#elif (BOARD == BOARD_USBKEY)
 			#include "AVR8/USBKEY/Joystick.h"
-		#elif (BOARD == AVRM32U4)
-			#include "AVR8/AVRM32U4/Joystick.h"
+		#elif (BOARD == AVRPI32U4)
+			#include "AVR8/AVRPI32U4/Joystick.h"
 		#elif (BOARD == BOARD_STK525)
 			#include "AVR8/STK525/Joystick.h"
 		#elif (BOARD == BOARD_STK526)

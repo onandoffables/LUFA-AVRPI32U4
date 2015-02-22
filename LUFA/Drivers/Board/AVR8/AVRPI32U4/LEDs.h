@@ -29,24 +29,24 @@
 */
 
 /** \file
- *  \brief Board specific LED driver header for the AVRM32U4.
- *  \copydetails Group_LEDs_AVRM32U4
+ *  \brief Board specific LED driver header for the AVRPI32U4.
+ *  \copydetails Group_LEDs_AVRPI32U4
  *
  *  \note This file should not be included directly. It is automatically included as needed by the LEDs driver
  *        dispatch header located in LUFA/Drivers/Board/LEDs.h.
  */
 
 /** \ingroup Group_LEDs
- *  \defgroup Group_LEDs_AVRM32U4 AVRM32U4
- *  \brief Board specific LED driver header for the AVRM32U4.
+ *  \defgroup Group_LEDs_AVRPI32U4 AVRPI32U4
+ *  \brief Board specific LED driver header for the AVRPI32U4.
  *
- *  Board specific LED driver header for the AVRM32U4.
+ *  Board specific LED driver header for the AVRPI32U4.
  *
  *  @{
  */
 
-#ifndef __LEDS_AVRM32U4_H__
-#define __LEDS_AVRM32U4_H__
+#ifndef __LEDS_AVRPI32U4_H__
+#define __LEDS_AVRPI32U4_H__
 
 	/* Includes: */
 		#include "../../../LUFA/Common/Common.h"
