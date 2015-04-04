@@ -129,7 +129,6 @@ void SetupHardware(void)
 void CheckJoystickMovement(void)
 {
 	uint8_t     JoyStatus_LCL = Joystick_GetStatus();
-	uint8_t     JoyStatusB_LCL = JoystickB_GetStatus();
 	char*       ReportString  = NULL;
 	static bool ActionSent    = false;
 
@@ -141,7 +140,7 @@ void CheckJoystickMovement(void)
 	  ReportString = "Joystick Left\r\n";
 	else if (JoyStatus_LCL & JOY_RIGHT)
 	  ReportString = "Joystick Right\r\n";
-	else if (JoyStatusB_LCL & JOY_PRESS)
+	else if (JoyStatus_LCL & JOY_PRESS)
 	  ReportString = "Joystick Pressed\r\n";
 	else
 	  ActionSent = false;

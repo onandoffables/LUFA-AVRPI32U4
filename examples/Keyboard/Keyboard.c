@@ -160,8 +160,7 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
 {
 	USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
 
-	uint8_t JoyStatus_LCL    = Joystick_GetStatus(); // up down left right
-	uint8_t JoyStatusB_LCL    = JoystickB_GetStatus(); // press
+	uint8_t JoyStatus_LCL    = Joystick_GetStatus();
 	uint8_t ButtonStatus_LCL = Buttons_GetStatus();
 
 	uint8_t UsedKeyCodes = 0;
@@ -179,7 +178,7 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
 		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_D;
 
 	// joy - press
-	if (JoyStatusB_LCL & JOY_PRESS)
+	if (JoyStatus_LCL & JOY_PRESS)
 		KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_E;
 
 	// button - button1

@@ -161,7 +161,6 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
 	USB_MouseReport_Data_t* MouseReport = (USB_MouseReport_Data_t*)ReportData;
 
 	uint8_t JoyStatus_LCL    = Joystick_GetStatus();
-	uint8_t JoyStatusB_LCL    = JoystickB_GetStatus();
 	uint8_t ButtonStatus_LCL = Buttons_GetStatus();
 
 	if (JoyStatus_LCL & JOY_UP)
@@ -174,7 +173,7 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
 	else if (JoyStatus_LCL & JOY_RIGHT)
 	  MouseReport->X =  1;
 
-	if (JoyStatusB_LCL & JOY_PRESS)
+	if (JoyStatus_LCL & JOY_PRESS)
 	  MouseReport->Button |= (1 << 0);
 
 	if (ButtonStatus_LCL & BUTTONS_BUTTON1)

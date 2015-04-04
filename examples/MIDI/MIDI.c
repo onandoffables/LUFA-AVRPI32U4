@@ -128,10 +128,8 @@ void CheckJoystickMovement(void)
 	uint8_t MIDIPitch;
 
 	/* Get current joystick mask, XOR with previous to detect joystick changes */
-	uint8_t JoystickStatus    = Joystick_GetStatus(); // up down left right
-	uint8_t JoystickBStatus    = JoystickB_GetStatus(); // press
+	uint8_t JoystickStatus    = Joystick_GetStatus();
 	uint8_t JoystickChanges = (JoystickStatus ^ PrevJoystickStatus);
-	uint8_t JoystickBChanges = (JoystickBStatus ^ PrevJoystickBStatus);
 
 	/* Get board button status - if pressed use channel 10 (percussion), otherwise use channel 1 */
 	uint8_t Channel = ((Buttons_GetStatus() & BUTTONS_BUTTON1) ? MIDI_CHANNEL(10) : MIDI_CHANNEL(1));
@@ -160,9 +158,9 @@ void CheckJoystickMovement(void)
 		MIDIPitch   = 0x3F;
 	}
 
-	if (JoystickBChanges & JOY_PRESS)
+	if (JoystickChanges & JOY_PRESS)
 	{
-		MIDICommand = ((JoystickBStatus & JOY_PRESS)? MIDI_COMMAND_NOTE_ON : MIDI_COMMAND_NOTE_OFF);
+		MIDICommand = ((JoystickStatus & JOY_PRESS)? MIDI_COMMAND_NOTE_ON : MIDI_COMMAND_NOTE_OFF);
 		MIDIPitch   = 0x3B;
 	}
 

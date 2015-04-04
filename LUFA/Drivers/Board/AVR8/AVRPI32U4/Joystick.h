@@ -64,48 +64,38 @@
 	/* Private Interface - For use in library only: */
 	#if !defined(__DOXYGEN__)
 		/* Macros: */
-			#define JOY_MASK                 ((1 << 4) | (1 << 5) | (1 << 6) | (1 << 7))
-			#define JOY_MASKB                ((1 << 4))
+			#define JOY_MASK                 ((1 << 1) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7))
 	#endif
 
 	/* Public Interface - May be used in end-application: */
 		/* Macros: */
-			/** Mask for the joystick being pushed in the right direction. */
-			#define JOY_RIGHT                 (1 << 4)
-
-			/** Mask for the joystick being pushed in the downward direction. */
-			#define JOY_DOWN                  (1 << 6)
+			/** Mask for the joystick being pushed down. */
+			#define JOY_PRESS                 (1 << 1)
 			
 			/** Mask for the joystick being pushed in the left direction. */
-			#define JOY_LEFT                  (1 << 7)
+			#define JOY_LEFT                  (1 << 4)
 			
 			/** Mask for the joystick being pushed in the upward direction. */
 			#define JOY_UP                    (1 << 5)
 			
-			// PB4
-			#define JOY_PRESS                 (1 << 4)
+			/** Mask for the joystick being pushed in the right direction. */
+			#define JOY_RIGHT                 (1 << 7)
+
+			/** Mask for the joystick being pushed in the downward direction. */
+			#define JOY_DOWN                  (1 << 6)
 
 		/* Inline Functions: */
 		#if !defined(__DOXYGEN__)
 			static inline void Joystick_Init(void)
 			{
-				DDRD  &= ~JOY_MASK;
-				PORTD |= JOY_MASK;
-				
-				DDRB  &= ~JOY_MASKB;
-				PORTB |= JOY_MASKB;
+				DDRF  &= ~JOY_MASK;
+				PORTF |= JOY_MASK;
 			}
 
 			static inline uint8_t Joystick_GetStatus(void) ATTR_WARN_UNUSED_RESULT;
 			static inline uint8_t Joystick_GetStatus(void)
 			{
-				return (uint8_t)(~PIND & JOY_MASK);
-			}
-
-			static inline uint8_t JoystickB_GetStatus(void) ATTR_WARN_UNUSED_RESULT;
-			static inline uint8_t JoystickB_GetStatus(void)
-			{
-				return (uint8_t)(~PINB & JOY_MASKB);
+				return (uint8_t)(~PINF & JOY_MASK);
 			}
 		#endif
 
