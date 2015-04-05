@@ -65,8 +65,9 @@
 		/* Macros: */
 			/** Buttons on the board. */
 			#define BUTTONS_BUTTON1      (1 << 2)
+			#define BUTTONS_BUTTON2      (1 << 6)
 			/** Button mask for the buttons on the board. */
-			#define BUTTON_MASK          (BUTTONS_BUTTON1)
+			#define BUTTON_MASK          (BUTTONS_BUTTON1 | BUTTONS_BUTTON2)
 
 		/* Inline Functions: */
 		#if !defined(__DOXYGEN__)
