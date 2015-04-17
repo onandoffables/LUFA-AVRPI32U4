@@ -241,7 +241,7 @@
 			#define BOARD_MICRO                58
 
 			/** Selects the AVRPi-32U4 specific board drivers, including Temperature, Button, Joystick and LED drivers. */
-			#define BOARD_AVRPI32U4            59
+			//#define BOARD_AVRPI32U4            59
 
 			#if !defined(__DOXYGEN__)
 				#define BOARD_                 BOARD_NONE
