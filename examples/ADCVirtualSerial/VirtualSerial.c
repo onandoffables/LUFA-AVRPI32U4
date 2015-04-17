@@ -88,7 +88,7 @@ int main(void)
 
 	for (;;)
 	{
-		CheckJoystickMovement();
+		CheckButtons();
 
 		/* Must throw away unused bytes from the host, or it will lock up while waiting for the device */
 		CDC_Device_ReceiveByte(&VirtualSerial_CDC_Interface);
@@ -121,25 +121,25 @@ void SetupHardware(void)
 #endif
 
 	/* Hardware Initialization */
-	ADC_Init(ADC_SINGLE_CONVERSION | ADC_PRESCALE_16);
-	ADC_SetupChannel(ADC_CHANNEL0);
-	
-	Joystick_Init();
+	Buttons_Init();
 	LEDs_Init();
 	USB_Init();
+	
+	ADC_Init(ADC_SINGLE_CONVERSION | ADC_PRESCALE_16);
+	ADC_SetupChannel(ADC_CHANNEL0);
 }
 
 /** Checks for changes in the position of the board joystick, sending strings to the host upon each change. */
-void CheckJoystickMovement(void)
+void CheckButtons(void)
 {
-	uint8_t     JoyStatus_LCL = Joystick_GetStatus();
+	uint8_t		ButtonStatus_LCL = Buttons_GetStatus();
 	char*       ReportString  = NULL;
 	static bool ActionSent    = false;
 
-	if (JoyStatus_LCL & JOY_PRESS) {
+	if (ButtonStatus_LCL & BUTTONS_BUTTON1) {
+		ReportString = "00000000000000";
 		uint16_t adc0 = (uint16_t)ADC_GetChannelReading(ADC_REFERENCE_AVCC | 0);
 		char str[] = "adc: %d\r\n";
-		ReportString = "00000000000000";
 		sprintf(ReportString, str, adc0);
 	}
 	else {
